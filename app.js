@@ -1,11 +1,12 @@
 Vue.createApp({
   data() {
     return {
+			url:'http://abc.com',
 			showBook: true,
 			books: [
-				{title: 'The Final Empire', author: 'Brandon Williams'},
-				{title: 'Name of the Wind', author: 'Patrick Swayne'},
-				{title: 'A song of fire and ice', author: 'George RR Martin'}
+				{title: 'The Final Empire', author: 'Brandon Williams', img: 'assets/1.jpg', isFav: true},
+				{title: 'Name of the Wind', author: 'Patrick Swayne', img: 'assets/2.jpg',  isFav: false},
+				{title: 'A song of fire and ice', author: 'George RR Martin', img: 'assets/3.jpg',  isFav: true}
 			]
       
     }
@@ -16,6 +17,9 @@ Vue.createApp({
 		},
 		toggleShowBooks (){
 			this.showBook = !this.showBook
+		},
+		toggleFav (book){
+			book.isFav = !book.isFav
 		}
 	}
 }).mount('#app')
