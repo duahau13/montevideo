@@ -1,59 +1,36 @@
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Learning Vue</title>
-		<script src="https://unpkg.com/vue@3"></script>
-		<style>
-			body{
-				background: #eee;
-				max-width: 960px;
-				margin: 20px auto;
-			}
-			p, h3, ul{
-				margin: 0;
-				padding: 0;
-			}
-			li{
-				list-style-type: none;
-				background: #fff;
-				margin: 20px auto;
-				padding: 10px 20px;
-				border-radius: 10px;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-			li.fav{
-				background: #ff9ed2;
-				color: white;
-			}
-			img {
-				max-width: 112px;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="app">
-			<div v-if="showBook">
-				<a :href="url">The best website ever</a>
-				<ul>
-					<li v-for="book in books" :class="{fav: book.isFav}" @click="toggleFav(book)">
-						<img :src="book.img" :alt="book.title">
-						<h3>{{book.title}}</h3>
-						<p>{{book.author}}</p>
-					</li>
-				</ul>		
-			</div>
-			<button v-on:click="age++">Increase age</button>
-			<button v-on:click="age--">Decrease age</button>
-			<div @click="changeTitle('A new adventure')">Change book title</div>
-			<button @click="toggleShowBooks">
-				<span v-if="showBook">Hide books</span>
-				<span v-else>Show books</span>
-			</button>
-		</div>  
-		<script src="app.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <a :href="url">The best website ever</a>
+      <div v-if="showBook">
+        <ul>
+          <li
+            v-for="book in filterBooks"
+            :class="{fav: book.isFav}"
+            @click="toggleFav(book)"
+          >
+            <img :src="book.img" :alt="book.title" />
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+      </div>
+      <button v-on:click="age++">Increase age</button>
+      <button v-on:click="age--">Decrease age</button>
+      <div @click="changeTitle('A new adventure')">Change book title</div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBook">Hide books</span>
+        <span v-else>Show books</span>
+      </button>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
