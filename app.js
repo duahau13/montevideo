@@ -1,3 +1,5 @@
+import ChildComp from "./ChildComp.js";
+
 Vue.createApp({
   data() {
     return {
@@ -40,5 +42,8 @@ Vue.createApp({
     filterBooks() {
       return this.books.filter((book) => book.isFav);
     },
+  },
+  components: {
+    ChildComp,
   },
 }).mount("#app");

@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="app">
+      <child-comp :msg="url"></child-comp>
       <a :href="url">The best website ever</a>
       <div v-if="showBook">
         <ul>
@@ -31,6 +32,6 @@
         <span v-else>Show books</span>
       </button>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
